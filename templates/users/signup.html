@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block container %}
+<main class="profile">
+    <section class="videos">
+      <h2>SIGNUP</h2>
+  
+      <article class="videos-container">
+
+        {% if form.errors %}
+            <p class="login-text"><i class="fas fa-exclamation-triangle"></i> Your username and password didn't match. Please try again.</p>
+        {% endif%}
+
+        <form class="login-form" method="POST" action="{% url "login" %}">
+
+            {% csrf_token %}
+            <div class="search-container">
+                <input type="text" name="username" id="username" placeholder="Username/Email" class="search-input">
+            </div>
+            <div class="search-container">
+                <input type="password" name="password" id="password" placeholder="Password" class="search-input">
+            </div>
+            <div class="search-container">
+                <input type="password" name="password" id="password" placeholder="Confirm Password" class="search-input">
+            </div>
+            <div class="login-button-container">
+                <button class="login-button">
+                    Sign up
+                </button>
+            </div>
+    
+        </form>
+      </article>
+    </section>
+  </main>
+
+{% endblock %}

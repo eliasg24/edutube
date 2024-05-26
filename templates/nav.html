@@ -1,0 +1,19 @@
+{% load static %}
+<header>
+    <nav>
+      <a href="{% url 'feed' %}" class="logo">
+        <img src="{% static 'img/Main-Logo.jpg' %}" alt="" />
+      </a>
+
+      <ul>
+        <li><a href="{% url 'home' %}">ABOUT</a></li>
+        <li><a href="">CONTACTO</a></li>
+        <span class="nav-span"></span>
+        {% if request.user.is_anonymous %}
+        <li><a href="{% url 'login' %}" class="nav-button">LOGIN</a></li>
+        {% else %}
+        <li><a href="{% url 'logout' %}" class="nav-button">LOGOUT</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>

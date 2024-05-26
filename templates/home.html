@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block container %}
+<main>
+    <section class="hero-1">
+        <article>
+            <h1>Tu plataforma de videos 100% gratuita</h1>
+            <span>
+            EduTube es una plataforma gratuita que ofrece contenido educativo de
+            alta calidad, democratizando el acceso al conocimiento para todos.
+            </span>
+            <button class="hero-1-button">COMENZAR A VER</button>
+        </article>
+    </section>
+
+    <section class="how-it-works">
+        <article class="text-container">
+            <h2>¿Cómo Funciona <b>EduTube?</b></h2>
+
+            <p>
+            Cada sección de EduTube está equipada con herramientas interactivas
+            que permiten a los usuarios participar en foros de discusión,
+            realizar preguntas a los instructores, y colaborar en proyectos con
+            otros estudiantes.
+            </p>
+
+            <p>
+            Esto garantiza una experiencia de aprendizaje dinámica y
+            enriquecedora, adaptada a las necesidades individuales de cada
+            usuario.
+            </p>
+
+            <p>
+            Además, EduTube cuenta con una aplicación móvil para que los
+            usuarios puedan acceder a los recursos educativos en cualquier
+            momento y lugar, facilitando así el aprendizaje continuo y flexible.
+            </p>
+        </article>
+
+        <article class="cards-container">
+            <div class="card">
+                <img src="{% static 'img/Card-Img-1.jpg' %}" alt="" />
+
+                <div class="card-text-container">
+                    <h5>Grado Educativo</h5>
+                    <p>
+                    En esta sección, los usuarios pueden indicar su grado de estudio
+                    o su carrera, y EduTube les mostrará contenido específicamente
+                    relacionado con su nivel educativo. Este sistema incluye...
+                    </p>
+
+                    <button>COMENZAR A VER</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'img/Card-Img-2.jpg' %}" alt="" />
+
+                <div class="card-text-container">
+                    <h5>Eduacion libre</h5>
+                    <p>
+                    La sección de Educación Libre de EduTube funciona como un
+                    formato abierto similar a YouTube, donde los usuarios pueden
+                    explorar una vasta gama de temas y disciplinas. Aquí, se fomenta
+                    un aprendizaje más autodirigido y exploratorio, con contenido
+                    que incluye...
+                    </p>
+
+                    <button>COMENZAR A VER</button>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="join-us">
+        <img src="{% static 'img/Join-Img.jpg' %}" alt=""/>
+
+        <article class="join-us-content">
+            <h2>Únete a la Comunidad de <b>EduTube</b></h2>
+
+            <p>
+            EduTube no solo es una plataforma para aprender, sino también para
+            enseñar y compartir. Invitamos a educadores, profesionales y
+            entusiastas del conocimiento a contribuir con sus propios videos y
+            recursos, ayudando a enriquecer nuestra comunidad global de
+            aprendizaje.
+            </p>
+
+            <p>
+            Al unirse como creadores de contenido, estos individuos tienen la
+            oportunidad de compartir su experiencia y pasión por diferentes
+            materias, impactando positivamente en miles de estudiantes de todas
+            las edades y procedencias.
+            </p>
+
+            <button>UNETE A NOSOTROS</button>
+        </article>
+    </section>
+
+    <section class="celebrities">
+        <h2>Personalidades Destacadas de <b>EduTube</b></h2>
+
+        <article class="profile-cards-container">
+            <div class="profile-card">
+                <img src="{% static 'img/migala.jpg' %}" alt="" />
+
+                <h4>MIGALA</h4>
+
+                <span>FILOSOFIA, SOCIOLOGIA Y PSICOLOGIA</span>
+                <p>
+                    Se centra en la divulgación cultural, explorando temas diversos que van desde la historia, 
+                    la ciencia y la psicología hasta la filosofía y la literatura.
+                </p>
+            </div>
+
+            <div class="profile-card">
+                <img src="{% static 'img/javi_santaolalla.jpg' %}" alt="" />
+
+                <h4>Javier Santaolalla</h4>
+
+                <span>FISICA</span>
+                <p>
+                    En esta sección, los usuarios pueden indicar su grado de estudio o
+                    su carrera, y EduTube les mostrará contenido específicamente
+                    relacionado con su nivel educativo. Este sistema incluye:
+                </p>
+            </div>
+
+            <div class="profile-card">
+                <img src="{% static 'img/levy.jpg' %}" alt="" />
+
+                <h4>LEVY</h4>
+
+                <span>AJEDREZ</span>
+                <p>
+                    Maestro internacional (IM) de ajedrez, comentarista y entrenador. El principal objetivo de 
+                    GothamChess es educar y entretener, ayudando a los jugadores de todos los niveles a mejorar 
+                    sus habilidades mientras disfrutan del proceso de aprendizaje.
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <img class="hero-img" src="{% static '/img/Background-img.jpg' %}" alt="" />
+</main>
+{% endblock %}

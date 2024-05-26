@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block container %}
+<main>
+    <section class="hero">
+        <article>
+            <form method="GET" class="no-style">
+                <div class="first-filter-container">
+                    <div class="search-container">
+                        <input type="text" id="search" name="search" class="search-input" placeholder="Buscar..." value="{% if search %}{{search}}{% endif %}">
+                        <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div class="button-container">
+                        <input type="hidden" id="sector" name="sector">
+                        <button class="classic-filter-button outside-filter-button filter-button {% if sector_filter == 'Educación Libre' or not sector_filter %}active{% endif %}" id="educacion_libre_button" name="sector_button" type="button">
+
+                            Educación Libre
+
+                        </button>
+
+                        <button class="platformer-filter-button outside-filter-button filter-button {% if sector_filter == 'Grado Educativo' %}active{% endif %}" id="grado_educativo_button" name="sector_button" type="button">
+
+                            Grado Educativo
+
+                        </button>
+                    </div>
+                </div>
+
+                <div class="second-filter-container">
+                    <select name="type" id="type" class="second-filter">
+                        <option value="">-- All types --</option>
+                        <option value="Fisica" {% if type_filter == "Fisica" %}selected{% endif %}>Fisica</option>
+                        <option value="Matematicas" {% if type_filter == "Matematicas" %}selected{% endif %}>Matematicas</option>
+                        <option value="Programacion" {% if type_filter == "Programacion" %}selected{% endif %}>Programacion</option>
+                        <option value="Filosofia" {% if type_filter == "Filosofia" %}selected{% endif %}>Filosofia</option>
+                        <option value="Psicologia" {% if type_filter == "Psicologia" %}selected{% endif %}>Psicologia</option>
+                        <option value="Ingles" {% if type_filter == "Ingles" %}selected{% endif %}>Ingles</option>
+                    </select>
+                    {% if sector_filter == 'Grado Educativo'  %}
+                    <select name="grade" id="grade" class="second-filter">
+                        <option value="">-- Grade --</option>
+                        <option value="1° grado" {% if grade_filter == "1° grado" %}selected{% endif %}>1° grado</option>
+                        <option value="2° grado" {% if grade_filter == "2° grado" %}selected{% endif %}>2° grado</option>
+                        <option value="3° grado" {% if grade_filter == "3° grado" %}selected{% endif %}>3° grado</option>
+                        <option value="4° grado" {% if grade_filter == "4° grado" %}selected{% endif %}>4° grado</option>
+                        <option value="5° grado" {% if grade_filter == "5° grado" %}selected{% endif %}>5° grado</option>
+                        <option value="6° grado" {% if grade_filter == "6° grado" %}selected{% endif %}>6° grado</option>
+                        <option value="7° grado" {% if grade_filter == "7° grado" %}selected{% endif %}>7° grado</option>
+                        <option value="8° grado" {% if grade_filter == "8° grado" %}selected{% endif %}>8° grado</option>
+                        <option value="9° grado" {% if grade_filter == "9° grado" %}selected{% endif %}>9° grado</option>
+                        <option value="1° grado (prepa)" {% if grade_filter == "1° grado (prepa)" %}selected{% endif %}>1° grado (prepa)</option>
+                        <option value="2° grado (prepa)" {% if grade_filter == "2° grado (prepa)" %}selected{% endif %}>2° grado (prepa)</option>
+                    </select>
+                    {% endif %}
+                </div>
+
+            </form>
+
+        </article>
+    </section>
+
+    <section class="videos">
+
+        <article class="videos-container">
+            {% for video in videos %}
+            <div class="video">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{video.uu_id}}" frameborder="0" allowfullscreen></iframe>
+
+                <h4>{{video.title}}</h4>
+                <div class="video-text">
+
+                    <a href="{% url 'username_detail' video.profile.user.username %}">{{video.profile.user.username}}</a>
+
+                    <p>Hace {% for value in video.time_ago|diff_dates %}{{value}} {% endfor %}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </article>
+    </section>
+</main>
+
+<script>
+    document.getElementById('type').addEventListener('change', function() {
+
+        if (document.getElementById('grade').value){
+            document.getElementById('sector').value = "Grado Educativo";
+        }
+
+        this.form.submit();
+    });
+
+    if (document.getElementById('grade')){
+        document.getElementById('grade').addEventListener('change', function() {
+            document.getElementById('sector').value = "Grado Educativo";
+            this.form.submit();
+        });
+    }
+
+
+    document.getElementById('educacion_libre_button').addEventListener('click', function() {
+        document.getElementById('sector').value = "Educación Libre";
+
+        document.getElementById('grade').value = null;
+        this.form.submit();
+    });
+
+    document.getElementById('grado_educativo_button').addEventListener('click', function() {
+        document.getElementById('sector').value = "Grado Educativo";
+
+        this.form.submit();
+    });
+
+</script>
+{% endblock %}
